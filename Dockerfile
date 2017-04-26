@@ -157,6 +157,8 @@ ADD ./config/supervisord.conf /etc/supervisord.conf
 
 ADD ./config/nginx.conf /etc/nginx/nginx.conf
 
+RUN touch /var/log/node/node.out.log && touch /var/log/node/node.out.log
+
 #
 #--------------------------------------------------------------------------
 # Application
