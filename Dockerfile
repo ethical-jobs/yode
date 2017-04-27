@@ -159,7 +159,7 @@ ADD ./config/nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir -p /var/log/node \
     && touch /var/log/node/node.out.log \
-    && touch /var/log/node/node.out.log
+    && touch /var/log/node/node.err.log
 
 #
 #--------------------------------------------------------------------------
