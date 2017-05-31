@@ -4,7 +4,7 @@ MAINTAINER andrewmclagan
 
 #
 #--------------------------------------------------------------------------
-# Install nginx (copied from nginx docker repo)
+# Install nginx  (copied from nginx docker repo)
 #--------------------------------------------------------------------------
 #
 
