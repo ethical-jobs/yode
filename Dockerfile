@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:7-alpine
 
 MAINTAINER andrewmclagan
 
@@ -157,9 +157,9 @@ ADD ./config/supervisord.conf /etc/supervisord.conf
 
 ADD ./config/nginx.conf /etc/nginx/nginx.conf
 
-RUN mkdir -p /var/log/node \
+RUN mkdir -p touch /var/log/node \
     && touch /var/log/node/node.out.log \
-    && touch /var/log/node/node.err.log
+    && touch /var/log/node/node.out.log
 
 #
 #--------------------------------------------------------------------------
