@@ -74,6 +74,11 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz -o nginx.tar.gz \
 	&& curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz.asc  -o nginx.tar.gz.asc \
 	&& export GNUPGHOME="$(mktemp -d)" \
+	# -----------------------------------------------------
+	# 
+	# Disabling GPG keycheck as this version of alpine is not compat. - Andrew
+	#
+	# ----------------------------------------------------- 
 	# && found=''; \
 	# for server in \
 	# 	ipv4.pool.sks-keyservers.net \
@@ -150,7 +155,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 #--------------------------------------------------------------------------
 #
 
-RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y supervisor 
+RUN apk add --no-cache supervisor 
 
 #
 #--------------------------------------------------------------------------
