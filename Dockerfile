@@ -1,6 +1,6 @@
 FROM node:9-alpine
 
-MAINTAINER andrewmclagan
+LABEL maintainer "Dean Tedesco <dean@ethicaljobs.com.au>"
 
 #
 #--------------------------------------------------------------------------
