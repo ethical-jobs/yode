@@ -1,7 +1,8 @@
 
-# [v0.10.0]
+# [v0.10.0 - v0.10.1]
 
 - Update node version to latest 9.x.x by forcing rebuild
+- Trigger CI build
 
 # v0.9.2
 
