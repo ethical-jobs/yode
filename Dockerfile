@@ -197,6 +197,8 @@ RUN mkdir -p /var/www
 
 WORKDIR /var/www
 
+RUN node --version
+
 #
 #--------------------------------------------------------------------------
 # Init
