@@ -1,9 +1,10 @@
 
 
-# [v0.11.0]
+# [v0.11.0 - v0.11.1]
 
 - Upgrade node to v10.x.x
 - Simplify how we combine nginx and node
+- Fix: send nginx output to container output
 
 # [v0.10.0 - v0.10.1]
 
