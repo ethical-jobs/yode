@@ -1,6 +1,6 @@
-FROM nginx:1.16.0-alpine
+FROM nginx:1.17.7-alpine
 
-LABEL maintainer="Dean Tedesco <dean@ethicaljobs.com.au>"
+LABEL maintainer="Ethical Jobs <development@ethicaljobs.com.au>"
 
 
 
