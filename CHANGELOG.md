@@ -1,5 +1,12 @@
 
 
+# [v0.11.1 - v0.11.2]
+
+- Clean-up after package Alpine & yarn package installations
+- Use `COPY ` Dockerfile syntax instead of `ADD `
+- Add Docker image layer caching to build
+- Allow slack notification step to fail with overall build success
+
 # [v0.11.0 - v0.11.1]
 
 - Upgrade node to v10.x.x

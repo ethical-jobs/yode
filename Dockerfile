@@ -2,50 +2,19 @@ FROM nginx:1.17.7-alpine
 
 LABEL maintainer="Ethical Jobs <development@ethicaljobs.com.au>"
 
-
-
 #
 #--------------------------------------------------------------------------
-# Install node
+# Install node + other useful packages
 #--------------------------------------------------------------------------
 #
 
-RUN apk add --update nodejs yarn
+RUN apk add --no-cache nodejs yarn bash jq supervisor
+RUN yarn global add dotenv-to-json @ethical-jobs/dynamic-env && yarn cache clean
 
-#
-#--------------------------------------------------------------------------
-# Install bash, jq
-#--------------------------------------------------------------------------
-#
+COPY ./config/supervisord.conf /etc/supervisord.conf
+COPY ./config/nginx.conf /etc/nginx/nginx.conf
 
-RUN apk add --no-cache bash jq
-
-#
-#--------------------------------------------------------------------------
-# Install dotenv-to-json and dynamic-env
-#--------------------------------------------------------------------------
-#
-
-RUN yarn global add dotenv-to-json @ethical-jobs/dynamic-env
-
-#
-#--------------------------------------------------------------------------
-# Install supervisor
-#--------------------------------------------------------------------------
-#
-
-RUN apk add --no-cache supervisor
-
-#
-#--------------------------------------------------------------------------
-# Configuration
-#--------------------------------------------------------------------------
-#
-
-ADD ./config/supervisord.conf /etc/supervisord.conf
-
-ADD ./config/nginx.conf /etc/nginx/nginx.conf
-
+# Create node log directories and stdout/stderr files
 RUN mkdir -p /var/log/node \
     && touch /var/log/node/node.out.log \
     && touch /var/log/node/node.err.log
@@ -61,9 +30,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 #
 
 RUN mkdir -p /var/www
-
 WORKDIR /var/www
-
 RUN node --version
 
 #

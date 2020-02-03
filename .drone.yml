@@ -1,6 +1,10 @@
-pipeline:
-      
-  publish:
+kind: pipeline
+name: default
+
+steps:
+  - name: publish
+    cache_from:
+      - "ethicaljobs/yode:latest"
     image: plugins/docker
     repo: ethicaljobs/yode
     secrets: [ docker_username, docker_password ]
@@ -9,10 +13,11 @@ pipeline:
     when:
       event: tag
 
-  notify-slack:
+  - name: notify-slack
     image: plugins/slack
     webhook: https://hooks.slack.com/services/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
     channel: deployments
+    failure: ignore
     when:
       event: tag
 
