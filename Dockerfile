@@ -1,4 +1,4 @@
-FROM nginx:1.17.7-alpine
+FROM nginx:1.19-alpine
 
 LABEL maintainer="Ethical Jobs <development@ethicaljobs.com.au>"
 
